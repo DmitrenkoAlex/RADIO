@@ -12,8 +12,8 @@ class RadioTest {
 
     @Test
     public void shouldSetStation() {
-        radio.setCurrentStation(10);
-        Assertions.assertEquals(10, radio.getCurrentStation());
+        radio.setCurrentStation(3);
+        Assertions.assertEquals(3, radio.getCurrentStation());
     }
 
     @Test
@@ -30,14 +30,14 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseStation() {
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(3);
         radio.switchStationNext();
-        Assertions.assertEquals(10, radio.getCurrentStation());
+        Assertions.assertEquals(4, radio.getCurrentStation());
     }
 
     @Test
     public void shouldIncreaseStation0() {
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(9);
         radio.switchStationNext();
         Assertions.assertEquals(0, radio.getCurrentStation());
     }
@@ -52,7 +52,7 @@ class RadioTest {
     @Test
     public void shouldDecreaseStationWhenCurrent0() {
         radio.switchStationPrev();
-        Assertions.assertEquals(10, radio.getCurrentStation());
+        Assertions.assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
