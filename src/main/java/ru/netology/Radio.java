@@ -1,15 +1,24 @@
 package ru.netology;
 
-
-
-
 public class Radio {
-
     private int currentStation;
     private int currentVolume;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int amountStation = 10;
+    private int minNumStation = 0;
+
+    public Radio(int amountStation)
+    {
+        this.amountStation = amountStation;
+
+    }
+
+    public Radio() {
+
+    }
 
     public void increaseVolume() {
-        int maxVolume = 10;
         if (currentVolume == maxVolume) {
             return;
         }
@@ -17,7 +26,6 @@ public class Radio {
     }
 
     public void decreaseVolume() {
-        int minVolume = 0;
         if (currentVolume == minVolume) {
             return;
         }
@@ -25,37 +33,34 @@ public class Radio {
     }
 
     public void switchStationNext() {
-        int maxStation = 9;
-        int minStation = 0;
-        if (currentStation == maxStation) {
-            currentStation = minStation;
+        if (currentStation == amountStation-1) {
+            currentStation = minNumStation;
             return;
         }
         ++currentStation;
     }
 
     public void switchStationPrev() {
-        int maxStation = 9;
-        int minStation = 0;
-        if (currentStation == minStation) {
-            currentStation = maxStation;
+        if (currentStation == minNumStation) {
+            currentStation = amountStation-1;
             return;
         }
         --currentStation;
     }
+
     public int getCurrentStation() {
         return currentStation;
     }
 
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
     public void setCurrentStation(int currentStation) {
-        int maxStation = 9;
-        int minStation = 0;
-        if (currentStation > maxStation || currentStation < minStation) {
+
+        if (currentStation > amountStation-1 || currentStation < minNumStation) {
 
             return;
         }
@@ -63,8 +68,7 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        int maxVolume = 10;
-        int minVolume = 0;
+
         if (currentVolume > maxVolume || currentVolume < minVolume) {
 
             return;
